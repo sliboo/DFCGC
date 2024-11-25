@@ -23,13 +23,6 @@ parser.add_argument('--relr', type=float, default=1e-5, help='Initial learning r
 parser.add_argument('--gnnlayers', type=int, default=3, help="Number of gnn layers")
 parser.add_argument('--dims', type=int, default=[20], help='Number of units in hidden layer 1.')
 
-# Q net
-parser.add_argument('--Q_epochs', type=int, default=30, help='Number of epochs to train Q.')
-parser.add_argument('--epsilon', type=float, default=0.5, help='Greedy rate.')
-parser.add_argument('--replay_buffer_size', type=float, default=50, help='Replay buffer size')
-parser.add_argument('--Q_lr', type=float, default=1e-3, help='Initial learning rate.')
-
-
 # AE structure parameter from DFCN
 parser.add_argument('--ae_n_enc_1', type=int, default=128)
 parser.add_argument('--ae_n_enc_2', type=int, default=256)
