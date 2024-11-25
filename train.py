@@ -73,16 +73,6 @@ def train(model, X, y, A, A_norm, Ad, features):
     best_ari = 0
     best_cluster = 0
 
-    # eps_value = 12 / 10.0
-    # _, c = MyDBSCAN(Z.detach().cpu().numpy(), eps=eps_value, MinPts=2)
-    # print(c)
-    # opt.args.n_clusters = c
-
-    # dpca = DensityPeakCluster()
-    # labels = dpca.fit(Z.detach().cpu().numpy())
-    # print(f'聚类个数: {labels}')
-    # opt.args.n_clusters = labels
-
     best_nmi, best_ari, _ = clustering2(Z.detach(), y, opt.args.n_clusters)
     # print(opt.args.n_clusters, best_nmi, best_ari)
 
@@ -97,17 +87,7 @@ def train(model, X, y, A, A_norm, Ad, features):
         model.train()
         X_tilde1, X_tilde2 = gaussian_noised_feature(X)
 
-        # input & output
         X_hat, Z_hat, A_hat, si, Z_ae_all, Z_gae_all, Q, Z, AZ_all, Z_all = model(X_tilde1, Ad, X_tilde2, Am)
-
-        # if (epoch+1) % 50 == 0:
-        #     data_cpu = Z.cpu().detach().numpy()
-        #     data_tsne = tsne.fit_transform(data_cpu)
-        #     labels = Q[0].detach().cpu().numpy().argmax(1)
-        #
-        #     # 可视化降维后的数据
-        #     plot_embedding(data_tsne, labels, epoch)
-        #     print("{} is ok.".format(epoch + 1))
 
         if (epoch > 98 and (epoch + 1) % 50 == 0):
             z_save_path = f'z_epoch_{epoch}.pdf'
