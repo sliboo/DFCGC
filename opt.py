@@ -3,7 +3,7 @@ import argparse
 parser = argparse.ArgumentParser(description='DCRN', formatter_class=argparse.ArgumentDefaultsHelpFormatter)
 
 # setting
-parser.add_argument('--name', type=str, default="acm")
+parser.add_argument('--name', type=str, default="dblp")
 parser.add_argument('--cuda', type=bool, default=True)
 parser.add_argument('--seed', type=int, default=3)
 parser.add_argument('--alpha_value', type=float, default=0.2)
