@@ -1,1 +1,1 @@
-Deep Fusion Contrastive Graph Clustering Network with Unknown Number of Clusters
+Deep Fusion Contrastive Graph Clustering Network with Unknown Cluster Number
